@@ -19,6 +19,15 @@ let scrape = async () => {
   return result;
 };
 
-scrape().then((value) => {
-  console.log(value);
-});
+
+module.exports = {
+
+  doScrape() {
+    return new Promise(resolve => {
+      scrape().then((value) => {
+        resolve(value);
+      });
+    });
+  }
+
+};
